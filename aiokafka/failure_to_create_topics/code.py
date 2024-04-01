@@ -34,6 +34,11 @@ async def main():
             break
         iteration += 1
 
+    await asyncio.sleep(5)
+    # delete the topic
+    response = await admin.delete_topics([random_topic_name])
+    print(f"Response from delete_topics: {response}")
+
 
 async def check_version():
     admin: AIOKafkaAdminClient = AIOKafkaAdminClient(
